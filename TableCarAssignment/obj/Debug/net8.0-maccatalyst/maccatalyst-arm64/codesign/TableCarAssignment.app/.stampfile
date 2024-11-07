@@ -1,0 +1,1 @@
+-v --force --timestamp=none --sign - --entitlements /Users/pingping/Documents/assignment/TableCarAssignment/TableCarAssignment/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/Entitlements.xcent /Users/pingping/Documents/assignment/TableCarAssignment/TableCarAssignment/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/TableCarAssignment.app

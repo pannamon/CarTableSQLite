@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TableCarAssignment.CarsPage"
+             xmlns:local="clr-namespace:TableCarAssignment.MVVM.ViewModels"
+             Title="CarsPage">
+
+   <Grid RowDefinitions=".3*,.7*">
+        <VerticalStackLayout Grid.Row="0"
+                Padding="20">
+            <Label Text="Cars Page"></Label>
+
+             <Entry Placeholder="Enter Car ID "
+                   Text="{Binding CurrentCars.CarID}"></Entry>
+            <Entry Placeholder="Enter Car Model"
+                   Text="{Binding CurrentCars.Model}"></Entry>
+            <Entry Placeholder="Enter Car Color "
+                   Text="{Binding CurrentCars.Color}"></Entry>
+
+            <Button Text="Add or update" 
+                Command="{Binding AddorUpdateCommand}"></Button>
+
+        </VerticalStackLayout>
+        <ScrollView Padding="20"
+                Grid.Row="1">
+            <CollectionView  ItemsSource="{Binding Cars}"
+                    SelectionMode="Single"
+                             SelectedItem="{Binding CurrentCars}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <SwipeView>
+                            <SwipeView.LeftItems>
+                                <SwipeItems>
+                                    <SwipeItem 
+                                        Text="Delete"
+                                        BackgroundColor="Red"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type local:CarsPageViewModel}}, Path=DeleteCommand}">
+                                    </SwipeItem>
+                                </SwipeItems>
+                            </SwipeView.LeftItems>
+                            <Grid ColumnDefinitions="*,*,*">
+                                <Label Grid.Column="0" 
+                                        Text="{Binding CarID}"></Label>
+                                <Label Grid.Column="1"
+                                        Text="{Binding Model}"></Label>
+                                <Label Grid.Column="2"
+                                        Text="{Binding Color}"></Label>        
+                            </Grid>
+                        </SwipeView>
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+    </Grid>   
+</ContentPage>
